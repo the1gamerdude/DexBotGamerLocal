@@ -33,6 +33,9 @@ public class MessageListener extends ListenerAdapter{
             if(msg.equalsIgnoreCase("!help")) {
                 Response.gitHelp();
             }
+            if(msg.equalsIgnoreCase("!newPokedex")) {
+                pokedexManager.newPokedex(msg);
+            }
         }
     }
     
