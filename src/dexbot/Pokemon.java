@@ -70,20 +70,20 @@ public class Pokemon {
         } catch (IOException e1) {
             System.out.println(e1);
         }
-        System.out.println(currentLine);
         if(currentLine.contains("D".concat(String.format("%03d", pokedexNum)))) {
             int i=1;
-            hp=Integer.parseInt(currentLine.substring(((4*i)+1),((4*i))+4));
+            int indexOffSet=currentLine.indexOf("D".concat(String.format("%03d", pokedexNum)));
+            hp=Integer.parseInt(currentLine.substring((indexOffSet+(4*i)+1),(indexOffSet+(4*i))+4));
             i++;
-            attack=Integer.parseInt(currentLine.substring(((4*i)+1),((4*i))+4));
+            attack=Integer.parseInt(currentLine.substring((indexOffSet+(4*i)+1),(indexOffSet+(4*i))+4));
             i++;
-            defense=Integer.parseInt(currentLine.substring(((4*i)+1),((4*i))+4));
+            defense=Integer.parseInt(currentLine.substring((indexOffSet+(4*i)+1),(indexOffSet+(4*i))+4));
             i++;
-            spAttack=Integer.parseInt(currentLine.substring(((4*i)+1),((4*i))+4));
+            spAttack=Integer.parseInt(currentLine.substring((indexOffSet+(4*i)+1),(indexOffSet+(4*i))+4));
             i++;
-            spDefense=Integer.parseInt(currentLine.substring(((4*i)+1),((4*i))+4));
+            spDefense=Integer.parseInt(currentLine.substring((indexOffSet+(4*i)+1),(indexOffSet+(4*i))+4));
             i++;
-            speed=Integer.parseInt(currentLine.substring(((4*i)+1),((4*i))+4));
+            speed=Integer.parseInt(currentLine.substring((indexOffSet+(4*i)+1),(indexOffSet+(4*i))+4));
         }
     }
     
@@ -117,7 +117,6 @@ public class Pokemon {
         // No real need to close the BufferedReader/InputStreamReader
         // as they're only wrapping the stream
         FileInputStream stream = new FileInputStream("C:\\Users\\colek\\Desktop\\NetbeansProjects\\DexBot\\pokemonData\\pokemonStats.txt");
-        System.out.println("Starting FIS");
         try {
             Reader reader = new BufferedReader(new InputStreamReader(stream, "US-ASCII"));
             StringBuilder builder = new StringBuilder();
